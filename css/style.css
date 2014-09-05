@@ -17,6 +17,7 @@ html {
   font-size: 1em;
   line-height: 1.4;
   box-sizing: border-box;
+  font-family: "Karla", sans-serif;
 }
 
 *, *:before, *:after {
@@ -98,13 +99,41 @@ Browse Happy prompt
 Author's custom styles
 ========================================================================== */
 
+a, a:visited {
+  text-decoration: none;
+  color: #444444;
+}
+
 .colour-block {
   height: 100px;
   width: 20%;
   float: left;
 }
 
+.palette-list {
+  list-style: none;
+}
 
+.palette-list-item {
+  display: block;
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 0 1%;
+  min-height: 100px;
+}
+
+.palette-list-item:hover {
+  background-color: #252525;
+}
+
+.palette-list-item:hover {
+  color: white;
+}
+
+.palette-list-item .colour-block {
+  height: 20px;
+}
 
 
 

@@ -31,6 +31,6 @@ Ember.Handlebars.registerHelper('debug', function(the_string){
     console.log(the_string);
 });
 
-Ember.Handlebars.helper('drawColourBlock', function(hexColor) {
-  return new Ember.Handlebars.SafeString("<p class='colour-block' style='background-color:#" + hexColor + ";'></p>");
+Ember.Handlebars.helper('drawColourBlock', function(hexColor, cssClass) {
+  return new Ember.Handlebars.SafeString("<p class='" + cssClass + "' style='background-color:#" + hexColor + ";'></p>");
 });

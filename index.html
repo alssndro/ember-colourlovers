@@ -17,19 +17,29 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="palettes">
-      {{#each}}
-        {{#link-to "palette" this}}
-          {{title}}
-        {{/link-to}}
-      {{/each}}
+      <ul class="palette-list clearfix">
+        {{#each}}
+          {{#link-to "palette" this}}
+            <li class="palette-list-item">
+              {{title}}
+              {{palette-colour-blocks colors=colors}}
+            </li>
+          {{/link-to}}
+        {{/each}}
+      </ul>
 
       {{outlet}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="palette">
       {{title}}
+      {{!-- Need to pass property to component as it doesn't have access to this template's scope --}}
+      {{palette-colour-blocks colors=colors}}
+    </script>
+    
+    <script type="text/x-handlebars" id="components/palette-colour-blocks">
       {{#each colour in colors}}
-        {{drawColourBlock colour}}
+        {{drawColourBlock colour "colour-block"}}
       {{/each}}
     </script>
 
