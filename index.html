@@ -21,24 +21,35 @@
         {{#each}}
             <li class="palette-list-item clearfix">
               <div class="palette-info">
-                <h3>{{title}}</h3>
+                <a {{bind-attr href=url}} target="_blank">
+                  <h3>{{title}}</h3>
+                </a>
+
                 <p class="palette-detail">Created On: {{dateCreatedString}}</p>
                 <p class="palette-detail">Hearts: {{numHearts}}</p>
                 <p class="palette-detail">Views: {{numViews}}</p>
                 <p class="palette-detail">Votes: {{numVotes}}</p>
                 <p class="palette-detail">Rank: {{rank}}</p>
                 <p class="palette-detail">Comments: {{numComments}}</p>
-                <a {{bind-attr href=url}} target="_blank">
-                  View on Colourlovers
-                </a>
               </div>
               {{palette-colour-blocks colors=colors}}
             </li>
         {{/each}}
       </ul>
-      {{#link-to 'palettes' (query-params pageNo=nextPage)}}
-        Next Page >
-      {{/link-to}}
+      <nav class="page-nav">
+        <p>
+          {{#unless firstPage}}
+            {{#link-to 'palettes' (query-params pageNo=previousPage)}}
+              < Previous Page
+            {{/link-to}}
+          {{/unless}}
+        </p>
+        <p>
+          {{#link-to 'palettes' (query-params pageNo=nextPage)}}
+            Next Page >
+          {{/link-to}}
+        </p>
+      </nav>
       {{!-- {{outlet}} --}}
     </script>
 

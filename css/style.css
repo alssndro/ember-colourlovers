@@ -84,6 +84,10 @@ textarea {
   resize: vertical;
 }
 
+p, ul {
+  margin: 0;
+}
+
 /* ==========================================================================
 Browse Happy prompt
 ========================================================================== */
@@ -108,13 +112,17 @@ a, a:visited {
   color: #444444;
 }
 
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
 .colour-block-container {
   float: left;
   width: 20%;
 }
 
 .colour-block {
-  height: 16em;
+  height: 8em;
 }
 
 .palette-list {
