@@ -11,41 +11,76 @@
   </head>
   <body>
     <script type="text/x-handlebars">
-      <div>
-        {{outlet}}
-      </div>
+    <div class="main">
+      {{outlet}}
+    </div>
     </script>
 
     <script type="text/x-handlebars" data-template-name="palettes">
       <ul class="palette-list clearfix">
         {{#each}}
-          {{#link-to "palette" this}}
-            <li class="palette-list-item">
-              {{title}}
+            <li class="palette-list-item clearfix">
+              <div class="palette-info">
+                <h3>{{title}}</h3>
+                <p class="palette-detail">Created On: {{dateCreatedString}}</p>
+                <p class="palette-detail">Hearts: {{numHearts}}</p>
+                <p class="palette-detail">Views: {{numViews}}</p>
+                <p class="palette-detail">Votes: {{numVotes}}</p>
+                <p class="palette-detail">Rank: {{rank}}</p>
+                <p class="palette-detail">Comments: {{numComments}}</p>
+                <a {{bind-attr href=url}} target="_blank">
+                  View on Colourlovers
+                </a>
+              </div>
               {{palette-colour-blocks colors=colors}}
             </li>
-          {{/link-to}}
         {{/each}}
       </ul>
-
-      {{outlet}}
+      {{#link-to 'palettes' (query-params pageNo=nextPage)}}
+        Next Page >
+      {{/link-to}}
+      {{!-- {{outlet}} --}}
     </script>
 
     <script type="text/x-handlebars" data-template-name="palette">
-      {{title}}
+      <h3>{{title}}</h3>
+      <p>Created On: {{dateCreatedString}}</p>
+      <p>Hearts: {{numHearts}}</p>
+      <p>Views: {{numViews}}</p>
+      <p>Votes: {{numVotes}}</p>
+      <p>Rank: {{rank}}</p>
+      <p>Comments: {{numComments}}</p>
+      <a {{bind-attr href=url}} target="_blank"/>
+        View on Colourlovers
+      </a>
+
       {{!-- Need to pass property to component as it doesn't have access to this template's scope --}}
       {{palette-colour-blocks colors=colors}}
     </script>
     
     <script type="text/x-handlebars" id="components/palette-colour-blocks">
       {{#each colour in colors}}
+      <div class="colour-block-container clearfix">
         {{drawColourBlock colour "colour-block"}}
+        {{#if showHexValue}}
+        <p>
+          #{{colour}}
+        </p>
+        {{/if}}
+      </div>
       {{/each}}
+      {{!-- <button {{action "toggleHexValue" colour}}>Toggle Hex Values</button> --}}
+    </script>
+    
+    <script type="text/x-handlebars" data-template-name="loading">
+      <h1>
+        Loading....
+      </h1>
     </script>
 
     <script src="js/libs/jquery-1.10.2.min.js"></script>
-    <script src="js/libs/handlebars-1.0.0.js"></script>
-    <script src="js/libs/ember.js"></script>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+    <script src="http://builds.emberjs.com/beta/ember.js"></script>
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/controllers/palettes_controller.js"></script>

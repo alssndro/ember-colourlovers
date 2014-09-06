@@ -34,3 +34,14 @@ Ember.Handlebars.registerHelper('debug', function(the_string){
 Ember.Handlebars.helper('drawColourBlock', function(hexColor, cssClass) {
   return new Ember.Handlebars.SafeString("<p class='" + cssClass + "' style='background-color:#" + hexColor + ";'></p>");
 });
+
+Colourlovers.PaletteColourBlocksComponent = Ember.Component.extend({
+  classNames: ["clearfix", "colour-blocks"],
+  showHexValue: false,
+  actions: {
+    toggleHexValue: function(hexValue) {
+      this.toggleProperty("showHexValue");
+      console.log("Inside component " + hexValue);
+    }
+  }
+});

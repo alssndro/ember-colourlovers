@@ -99,15 +99,22 @@ Browse Happy prompt
 Author's custom styles
 ========================================================================== */
 
+html, body {
+  height: 100%;
+}
+
 a, a:visited {
   text-decoration: none;
   color: #444444;
 }
 
-.colour-block {
-  height: 100px;
-  width: 20%;
+.colour-block-container {
   float: left;
+  width: 20%;
+}
+
+.colour-block {
+  height: 16em;
 }
 
 .palette-list {
@@ -116,29 +123,30 @@ a, a:visited {
 
 .palette-list-item {
   display: block;
-  float: left;
-  width: 20%;
-  text-align: center;
   padding: 0 1%;
-  min-height: 100px;
-}
-
-.palette-list-item:hover {
-  background-color: #252525;
-}
-
-.palette-list-item:hover {
-  color: white;
-}
-
-.palette-list-item .colour-block {
-  height: 20px;
 }
 
 
+.palette-info {
+  float: left;
+  width: 40%;
+}
 
+.colour-blocks {
+  float: left;
+  width: 60%;
+  height: 100%;
+}
 
+.colour-block-container {
+  height: 10em;
+}
 
+.palette-detail {
+  width: 50%;
+  float: left;
+  margin: 0 0 10px 0;
+}
 
 
 
