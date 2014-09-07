@@ -14,6 +14,29 @@ window.Colourlovers = Ember.Application.create({
   debugMode: true
 });
 
+var PageStore = Ember.Object.extend({
+  store: {},
+  find: function(listType, pageNo) {
+    console.log("Searching for: " + listType + " " + pageNo);
+    this.checkList(listType);
+    return this.store[listType][pageNo];
+  },
+  add: function(listType, pageNo, data) {
+    console.log("Adding: " + listType + " " + pageNo);
+    this.checkList(listType);
+    this.store[listType][pageNo] = data;
+  },
+  checkList: function(listName) {
+    if (this.store[listName] === undefined) {
+      this.store[listName] = {};
+    }
+  }
+});
+
+
+Colourlovers.register('pageStore:main', PageStore);
+Colourlovers.inject('route', 'pageStore', 'pageStore:main');
+
 // Want to use fixtures
 // Adapters are responsible for communicating with a source of data for
 // the application (usually a web API, but here we use fixture data

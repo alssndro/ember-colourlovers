@@ -116,6 +116,23 @@ h1, h2, h3, h4 {
   margin: 0;
 }
 
+.page-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 4em;
+  background-color: #444444;
+}
+
+.page-button, .page-button:visited {
+  float: right;
+  width: 50%;
+  border: none;
+  background-color: #444444;
+  color: white;
+  text-align: center;
+}
+
 .colour-block-container {
   float: left;
   width: 20%;
@@ -127,6 +144,7 @@ h1, h2, h3, h4 {
 
 .palette-list {
   list-style: none;
+  padding: 4em 0 0 0;
 }
 
 .palette-list-item {

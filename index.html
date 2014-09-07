@@ -17,6 +17,22 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="palettes">
+      <nav class="page-nav">
+      {{#link-to 'palettes' (query-params listType="top") classNames="page-button"}}
+        Top Palettes
+      {{/link-to}}
+      {{#link-to 'palettes' (query-params listType="new") classNames="page-button"}}
+        New Palettes
+      {{/link-to}}
+        {{#unless firstPage}}
+          {{#link-to 'palettes' (query-params pageNo=previousPage) classNames="page-button"}}
+            < Previous Page
+          {{/link-to}}
+        {{/unless}}
+        {{#link-to 'palettes' (query-params pageNo=nextPage) classNames="page-button"}}
+          Next Page >
+        {{/link-to}}
+      </nav>
       <ul class="palette-list clearfix">
         {{#each}}
             <li class="palette-list-item clearfix">
@@ -24,7 +40,6 @@
                 <a {{bind-attr href=url}} target="_blank">
                   <h3>{{title}}</h3>
                 </a>
-
                 <p class="palette-detail">Created On: {{dateCreatedString}}</p>
                 <p class="palette-detail">Hearts: {{numHearts}}</p>
                 <p class="palette-detail">Views: {{numViews}}</p>
@@ -36,20 +51,6 @@
             </li>
         {{/each}}
       </ul>
-      <nav class="page-nav">
-        <p>
-          {{#unless firstPage}}
-            {{#link-to 'palettes' (query-params pageNo=previousPage)}}
-              < Previous Page
-            {{/link-to}}
-          {{/unless}}
-        </p>
-        <p>
-          {{#link-to 'palettes' (query-params pageNo=nextPage)}}
-            Next Page >
-          {{/link-to}}
-        </p>
-      </nav>
       {{!-- {{outlet}} --}}
     </script>
 
