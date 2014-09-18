@@ -17,7 +17,7 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="palettes">
-      <nav class="page-nav">
+      <nav class="page-nav clearfix">
       {{#link-to 'palettes' (query-params listType="top") classNames="page-button"}}
         Top Palettes
       {{/link-to}}
@@ -29,13 +29,14 @@
             < Previous Page
           {{/link-to}}
         {{/unless}}
-        {{#link-to 'palettes' (query-params pageNo=nextPage) classNames="page-button"}}
+        {{#link-to 'palettes' (query-params pageNo=nextPage) classNames="page-button page-button-next"}}
           Next Page >
         {{/link-to}}
       </nav>
       <ul class="palette-list clearfix">
         {{#each}}
             <li class="palette-list-item clearfix">
+              {{palette-colour-blocks colors=colors}}
               <div class="palette-info">
                 <a {{bind-attr href=url}} target="_blank">
                   <h3>{{title}}</h3>
@@ -47,7 +48,6 @@
                 <p class="palette-detail">Rank: {{rank}}</p>
                 <p class="palette-detail">Comments: {{numComments}}</p>
               </div>
-              {{palette-colour-blocks colors=colors}}
             </li>
         {{/each}}
       </ul>

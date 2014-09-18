@@ -117,20 +117,21 @@ h1, h2, h3, h4 {
 }
 
 .page-nav {
-  position: fixed;
-  top: 0;
   width: 100%;
-  height: 4em;
   background-color: #444444;
 }
 
 .page-button, .page-button:visited {
-  float: right;
+  float: left;
   width: 50%;
   border: none;
   background-color: #444444;
   color: white;
   text-align: center;
+}
+
+.page-button-next {
+  float: right;
 }
 
 .colour-block-container {
@@ -150,22 +151,21 @@ h1, h2, h3, h4 {
 .palette-list-item {
   display: block;
   padding: 0 1%;
+  width: 50%;
+  float: left;
+  margin: 0 0 30px 0;
 }
 
 
 .palette-info {
-  float: left;
-  width: 40%;
+
 }
 
 .colour-blocks {
   float: left;
-  width: 60%;
+  width: 100%;
   height: 100%;
-}
-
-.colour-block-container {
-  height: 10em;
+  margin: 0 0 10px 0;
 }
 
 .palette-detail {
